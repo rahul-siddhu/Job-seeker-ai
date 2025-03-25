@@ -1,0 +1,146 @@
+Parsed_criteria: {
+  "min_salary": 100,
+  "skills": [
+    "python"
+  ],
+  "location": "karnataka"
+}
+**********************
+Elasticsearch query: {
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "multi_match": {
+            "query": "python",
+            "fields": [
+              "description^2",
+              "title^3",
+              "skills^4"
+            ],
+            "type": "phrase_prefix",
+            "boost": 2
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "city": {
+                    "query": "karnataka",
+                    "fuzziness": "AUTO"
+                  }
+                }
+              },
+              {
+                "match": {
+                  "location": {
+                    "query": "karnataka",
+                    "fuzziness": "AUTO"
+                  }
+                }
+              },
+              {
+                "match": {
+                  "state": {
+                    "query": "karnataka",
+                    "fuzziness": "AUTO"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "range": {
+            "salary": {
+              "gte": 100,
+              "lte": 1000000
+            }
+          }
+        }
+      ],
+      "should": [
+        {
+          "multi_match": {
+            "query": "python",
+            "fields": [
+              "description^2",
+              "title^3",
+              "skills^4"
+            ],
+            "type": "phrase_prefix",
+            "boost": 2
+          }
+        },
+        {
+          "bool": {
+            "should": [
+              {
+                "match": {
+                  "city": {
+                    "query": "karnataka",
+                    "fuzziness": "AUTO"
+                  }
+                }
+              },
+              {
+                "match": {
+                  "location": {
+                    "query": "karnataka",
+                    "fuzziness": "AUTO"
+                  }
+                }
+              },
+              {
+                "match": {
+                  "state": {
+                    "query": "karnataka",
+                    "fuzziness": "AUTO"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "range": {
+            "salary": {
+              "gte": 100,
+              "lte": 1000000
+            }
+          }
+        }
+      ],
+      "minimum_should_match": 1
+    }
+  }
+}
+=========================
+///////////////////////
+[]
+////////////////////////
+Required query: 
+{
+  "query": {
+    "bool" : {
+      "must" : [
+        "match" : { "city" : {city} },
+        "match" : { "location" : {location} },
+        "match" : { "workMode" : {workMode} }
+      ],
+      "filter": [
+        "term" : { "range" : {"min_salary":{"gte":{min_salary}}} },
+        "term" : { "range" : {"max_salary":{"lte":{max_salary}}} },
+        "term" : { "range" : {"experience_range_to":{"gte":{experience_range_to}}} },
+        "term" : { "range" : {"experience_range_from":{"lte":{experience_range_from}}} }
+      ],
+      "should" : 
+      ["match": {"qualification" : {qualification}}]+
+      [{"match": {"skills": {"query":{skill}, "boost":3.0}}} for skill in skills]
+      ,
+      "minimum_should_match" : 1
+    }
+  }
+}

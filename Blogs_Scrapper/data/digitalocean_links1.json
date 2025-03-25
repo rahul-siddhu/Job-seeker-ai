@@ -1,0 +1,29 @@
+[
+    {
+        "link": "https://www.digitalocean.com/blog/digitalocean-kubernetes-best-practices-security"
+    },
+    {
+        "link": "https://www.digitalocean.com/blog/github-actions-for-app-platform"
+    },
+    {
+        "link": "https://www.digitalocean.com/blog/how-isvs-startups-scale-digitalocean-kubernetes-best-practices-disaster-recovery"
+    },
+    {
+        "link": "https://www.digitalocean.com/blog/migrate-production-code-to-monorepo"
+    },
+    {
+        "link": "https://www.digitalocean.com/blog/simplifying-distributed-app-complexity-with-app-platforms-log-forwarding-and-opensearch"
+    },
+    {
+        "link": "https://www.digitalocean.com/blog/enhancing-search-capabilities-with-k-nn-vector-search-in-opensearch"
+    },
+    {
+        "link": "https://www.digitalocean.com/blog/deploy-microservices-architecture-app-in-app-platform"
+    },
+    {
+        "link": "https://www.digitalocean.com/blog/how-isvs-startups-scale-digitalocean-kubernetes-best-practices-scalability"
+    },
+    {
+        "link": "https://www.digitalocean.com/blog/how-isvs-startups-scale-digitalocean-kubernetes-best-practices-reliability"
+    }
+]

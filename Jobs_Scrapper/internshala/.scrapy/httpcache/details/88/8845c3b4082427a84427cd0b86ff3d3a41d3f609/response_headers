@@ -1,0 +1,15 @@
+Content-Type: text/plain
+Date: Mon, 10 Feb 2025 11:28:05 GMT
+Strict-Transport-Security: max-age=31536000
+Content-Encoding: gzip
+Set-Cookie: AWSALB=0ZzRGrrMPkXziMTt3iIvnsRxv0qBg3NKaIF4CCoT485yRWxG3CPZGKn2zTAdoLRub5rpRF6Pk+OEdOdpZfDtXWX6142GF14A/alrz7FsBMLJnRGd1HF095VzU1S5; Expires=Mon, 17 Feb 2025 11:28:05 GMT; Path=/
+Set-Cookie: AWSALBCORS=0ZzRGrrMPkXziMTt3iIvnsRxv0qBg3NKaIF4CCoT485yRWxG3CPZGKn2zTAdoLRub5rpRF6Pk+OEdOdpZfDtXWX6142GF14A/alrz7FsBMLJnRGd1HF095VzU1S5; Expires=Mon, 17 Feb 2025 11:28:05 GMT; Path=/; SameSite=None; Secure
+Server: nginx
+Last-Modified: Mon, 10 Feb 2025 11:15:34 GMT
+Vary: Accept-Encoding
+Etag: W/"67a9dfd6-37f"
+X-Cache: Miss from cloudfront
+Via: 1.1 e70925a92da0404e239c3620389c3dd0.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: JFK52-P2
+Alt-Svc: h3=":443"; ma=86400
+X-Amz-Cf-Id: gwjQ2Be62O4Ed6SXpIcuUwYnSwP49s8MG0xP06Fx9zeExVQvf70ldQ==

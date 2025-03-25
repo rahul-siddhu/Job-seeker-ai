@@ -1,0 +1,32 @@
+[
+    {
+        "link": "https://blogs.oracle.com/developers/post/why-vector-databases-are-here-to-stay-in-the-ai-age"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/hikaricp-best-practices-for-oracle-database-and-spring-boot"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/building-realtime-multicloud-ai-microservices-using-txeventq-sagas-truecache-in-oracle-database-23ai"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/developing-eventdriven-autocompensating-saga-transactions-for-microservices-with-oracle-database-sagas-and-lockless-reservations"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/developing-mobile-apps-with-oracle-database-free-23ai"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/augment-netsuite-rest-functionality-with-restlet"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/json-strict-and-lax-syntax-in-oracle-database-pt-2-type-conversions-dot-notation"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/oracle-at-kubecon-2025-from-communities-to-the-podium"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/streamlining-gpu-management-on-oci-kubernetes-engine-oke-with-the-nvidia-gpu-operator"
+    },
+    {
+        "link": "https://blogs.oracle.com/developers/post/lesswellknown-features-of-multilingual-engine-document-api"
+    }
+]

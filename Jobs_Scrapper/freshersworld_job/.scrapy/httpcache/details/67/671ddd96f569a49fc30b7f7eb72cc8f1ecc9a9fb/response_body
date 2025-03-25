@@ -1,0 +1,129 @@
+Sitemap: https://www.freshersworld.com/sitemap-index.xml
+
+User-agent: *
+Allow:/
+Allow:/user/PremiumServices
+Allow:/user/password
+Allow:/user/register
+Allow:/user/p3_login
+Allow:/user/login
+
+Disallow:/user/
+Disallow:/mobile/
+Disallow:/user/register/mail/
+Disallow:/in/
+Disallow:/private-in/
+Disallow:/indeed_jobs/
+Disallow:/indeed_jobs
+Disallow:/forum
+Disallow:/Apply_Status
+Disallow:/Get_Job_Apply_Status
+Disallow:/GetBranchesBasedOnCourses
+Disallow:/start/job-discussion
+Disallow:/images
+Disallow:/pages
+Disallow:/jobspreview/
+Disallow:/printpage
+Disallow:/content/
+Disallow:/member
+Disallow:/view
+Disallow:/searchbytag/
+Disallow:/jobs/detail/
+Disallow:/jobs/list/
+Disallow:/jobs/application/
+Disallow:/jobs/jobs/
+Disallow:/jobsearch
+Disallow:/jobs/archives/
+Disallow:/UpdatePageViews
+Disallow:/jobs/jobsearch/
+Disallow:/*limit=25
+Disallow:/*.htm
+Disallow:/*.asp
+Disallow:/*.html
+Disallow:/*.php
+Disallow:/*.swf
+Disallow:/jobs/getjobs
+Disallow:/1027569/*
+Disallow:/site/keyword
+Disallow:/site/SubMenuHeader
+Disallow:/site/sublocations
+Disallow:/site/cities
+Disallow:/sitemap1.xml
+Disallow:/jobs-in-delhi-ncr-others/9999035001
+Disallow:/common/images
+Disallow:/*view=expanded
+Disallow:/21751427562/*
+Disallow:/services/
+Disallow:/*ajax_
+
+Disallow:/*?src=*
+
+User-agent: Googlebot
+Allow:/
+Allow:/user/PremiumServices
+Allow:/user/password
+Allow:/user/register
+Allow:/user/p3_login
+Allow:/user/login
+
+Disallow:/user/
+Disallow:/mobile/
+Disallow:/user/register/mail/
+Disallow:/in/
+Disallow:/private-in/
+Disallow:/indeed_jobs/
+Disallow:/indeed_jobs
+Disallow:/forum
+Disallow:/Apply_Status
+Disallow:/Get_Job_Apply_Status
+Disallow:/GetBranchesBasedOnCourses
+Disallow:/start/job-discussion
+Disallow:/images
+Disallow:/pages
+Disallow:/jobspreview/
+Disallow:/printpage
+Disallow:/content/
+Disallow:/member
+Disallow:/view
+Disallow:/searchbytag/
+Disallow:/jobs/detail/
+Disallow:/jobs/list/
+Disallow:/jobs/application/
+Disallow:/jobs/jobs/
+Disallow:/jobsearch
+Disallow:/jobs/archives/
+Disallow:/UpdatePageViews
+Disallow:/jobs/jobsearch/
+Disallow:/*limit=25
+Disallow:/*.htm
+Disallow:/*.asp
+Disallow:/*.html
+Disallow:/*.php
+Disallow:/*.swf
+Disallow:/jobs/getjobs
+Disallow:/1027569/*
+Disallow:/site/keyword
+Disallow:/site/SubMenuHeader
+Disallow:/site/sublocations
+Disallow:/site/cities
+Disallow:/sitemap1.xml
+Disallow:/jobs-in-delhi-ncr-others/9999035001
+Disallow:/common/images
+Disallow:/*view=expanded
+Disallow:/21751427562/*
+Disallow:/services/
+Disallow:/*ajax_
+disallow: /user/login?returl*
+disallow: /user/login?src=*
+Disallow:/similar-jobs
+
+User-agent: BLEXBot
+Disallow: /
+User-agent: SeekportBot
+Disallow: /
+# Google Adsbot
+User-agent: AdsBot-Google
+Disallow:
+User-agent: AdsBot-Google-Mobile
+Disallow:
+

@@ -1,0 +1,2 @@
+1. job-controller takes jobs from rawjobs collection and based on the portal of job proccesses it accordingly and ingest into jobs collection, job-controller is under a cron process and runs automatically periodically
+2. modules/Services has the logic to extract rawdata and format it

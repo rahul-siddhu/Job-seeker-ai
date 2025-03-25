@@ -1,0 +1,7 @@
+## Changes made to improve the embed_job model:
+
+1. Make exact matching fields as keywords
+2. Try different models for embedding
+3. Apply filters if any before applying knn to reduce time for search
+4. Batching csv data to reduce overhead
+5. No Need for Full-Text Search: Since we're using the vectors for kNN-based search (similarity search), we don't need Elasticsearch to build inverted indexes for the vectors.

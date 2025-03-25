@@ -1,0 +1,76 @@
+name: Build and push Docker image to ECR
+
+on:
+  push: 
+    branches:      
+      - development          
+
+env:
+  AWS_REGION: ap-south-1
+  ECR_REPOSITORY: datafolkz-backend           
+
+jobs:
+  build-and-deploy:
+    name: Build and Push Docker Image to ECR
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+  
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with: 
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: ap-south-1
+
+      - name: Install QEMU for ARM architecture builds
+        run: |
+          docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+          docker buildx create --use
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, Tag, and Push ARM-only Image to Amazon ECR
+        run: |
+          SERVICE_NAME=$(echo $(basename $GITHUB_REPOSITORY) | tr -cd '[:alnum:]_.-' | awk '{print tolower($0)}')
+          BRANCH_NAME=$(echo "${GITHUB_REF#refs/heads/}" | awk '{print tolower($0)}')
+          SHORT_SHA=$(echo $GITHUB_SHA | cut -c1-7 | awk '{print tolower($0)}')
+          IMAGE_TAG=${BRANCH_NAME}-${SHORT_SHA}
+          DEPLOYMENT_IMAGE=${{ steps.login-ecr.outputs.registry }}/${ECR_REPOSITORY}:${SERVICE_NAME}-${IMAGE_TAG}
+
+          echo "Building and pushing $DEPLOYMENT_IMAGE"
+
+          # ARM64-only build
+          docker buildx build --platform linux/arm64 \
+            -t $DEPLOYMENT_IMAGE --push .
+
+          echo "DEPLOYMENT_IMAGE=$DEPLOYMENT_IMAGE" >> $GITHUB_ENV
+
+      - name: Update Docker Compose on EC2 for  Backend-service
+        run: |
+          sudo apt-get update && sudo apt-get install -y openssh-client
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan ${{ secrets.EC2_INSTANCE_IP }} >> ~/.ssh/known_hosts 
+
+          # SSH into the EC2 instance and update Docker Compose for Backend-service
+          ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.EC2_INSTANCE_IP }} <<EOF
+          cd /home/ubuntu/docker 
+          # AWS ECR login to avoid image pull back off
+          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 195275655678.dkr.ecr.ap-south-1.amazonaws.com
+          
+          # Prune old Docker resources to avoid resource issues
+          docker system prune -a -f --volumes
+
+          # Updating the docker-compose.yml to use the new image tag for Backend-service service
+          sed -i "s|image: 195275655678.dkr.ecr.ap-south-1.amazonaws.com/datafolkz-backend:datafolks-job-backend-development-.*|image: ${DEPLOYMENT_IMAGE}|g" docker-compose.yml
+          
+          # Pulling the latest images and redeploying only the Backend-service service
+          docker-compose pull Backend-service
+          docker-compose up -d --no-deps Backend-service
+          EOF

@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4 # Replace with the desired version
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=false
+      - ELASTIC_PASSWORD=search
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m # Limit Java heap size to 512MB
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    deploy:
+      resources:
+        limits:
+          memory: 1GB # Memory limit for the container
+        reservations:
+          memory: 512MB # Reserved memory for the container
+
+volumes:
+  elasticsearch-data:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "./elasticsearch-data" # Ensure this path exists on your local machine
