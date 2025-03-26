@@ -1,3 +1,5 @@
+# Job seeker AI
+
 ## Functionalities
 1. Scrapes Jobs from job posting sites.
 2. Refine and ingest the raw scraped to database.
