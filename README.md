@@ -11,6 +11,7 @@
 ## Tech used
 1. Scrapy
 2. ExpressJs
-3. Elasticsearch
-4. Langchain
-5. Selenium
+3. Flask
+4. Elasticsearch
+5. Langchain
+6. Selenium
