@@ -15,3 +15,7 @@
 4. Elasticsearch
 5. Langchain
 6. Selenium
+
+## Explanation
+Here I have explained the internal working of my chatbot
+https://www.youtube.com/watch?v=SbZ2VJWY06k
